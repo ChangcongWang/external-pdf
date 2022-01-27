@@ -3,6 +3,7 @@
 	"displayName": "External-pdf",
 	"description": "a plugin to open pdf by external exe",
 	"version": "1.0.0",
+	"publisher": "changcongwang",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
