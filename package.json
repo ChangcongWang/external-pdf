@@ -1,0 +1,76 @@
+{
+  "name": "external-pdf",
+	"displayName": "External-pdf",
+	"description": "a plugin to open pdf by external exe",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+	  "pdf",
+	  "preview"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ChangcongWang/external-pdf.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ChangcongWang/external-pdf/issues"
+	},
+	"activationEvents": [
+		"onCustomEditor:external-pdf"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"customEditors": [{
+			"viewType": "external-pdf",
+			"displayName": "External Pdf Preview",
+			"selector": [{
+				"filenamePattern": "*.pdf"
+			},
+			{
+				"filenamePattern": "*.PDF"
+			}],
+			"priority": "default"
+		}],
+		"configuration": {
+            "type": "object",
+            "title": "external-pdf",
+            "properties": {
+				"external-pdf.command": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "The external command to open pdf."
+				  }			  
+			}
+		}
+	},
+		"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {
+	  	"cross-spawn": "7.0.3"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.63.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/cross-spawn": "6.0.2",
+		"@typescript-eslint/eslint-plugin": "^5.9.1",
+		"@typescript-eslint/parser": "^5.9.1",
+		"eslint": "^8.6.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.1.3",
+		"typescript": "^4.5.4",
+		"@vscode/test-electron": "^2.0.3"
+	}
+}
