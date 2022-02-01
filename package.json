@@ -1,8 +1,8 @@
 {
   "name": "external-pdf",
-	"displayName": "External-pdf",
-	"description": "a plugin to open pdf by external exe",
-	"version": "1.0.0",
+	"displayName": "External-exe",
+	"description": "a plugin to open pdf and viedo by external exe",
+	"version": "1.1.0",
 	"publisher": "changcongwang",
 	"engines": {
 		"vscode": "^1.63.0"
@@ -11,6 +11,8 @@
 		"Programming Languages"
 	],
 	"keywords": [
+	  "exe",
+	  "viedo",
 	  "pdf",
 	  "preview"
 	],
@@ -22,7 +24,8 @@
 		"url": "https://github.com/ChangcongWang/external-pdf/issues"
 	},
 	"activationEvents": [
-		"onCustomEditor:external-pdf"
+		"onCustomEditor:external-pdf",
+		"onCustomEditor:external-viedo"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -36,16 +39,38 @@
 				"filenamePattern": "*.PDF"
 			}],
 			"priority": "default"
+		},
+		{
+			"viewType": "external-viedo",
+			"displayName": "External Viedo Preview",
+			"selector": [{
+				"filenamePattern": "*.mp4"
+			},
+			{
+				"filenamePattern": "*.avi"
+			},
+			{
+				"filenamePattern": "*.mkv"
+			},
+			{
+				"filenamePattern": "*.wmv"
+			}],
+			"priority": "default"
 		}],
 		"configuration": {
             "type": "object",
-            "title": "external-pdf",
+            "title": "external-exe",
             "properties": {
 				"external-pdf.command": {
 					"type": "string",
 					"default": "",
 					"markdownDescription": "The external command to open pdf."
-				  }			  
+				  }	,
+				"external-viedo.command": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "The external command to open viedo."
+				}					  
 			}
 		}
 	},
