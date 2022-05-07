@@ -18,6 +18,9 @@ class FileOpener implements vscode.CustomReadonlyEditorProvider {
 		vscode.commands.executeCommand('workbench.action.closeActiveEditor');
 		// Open the pdf file with native app
 		vscode.window.showInformationMessage(document.uri.path.slice(1));
+		if (pdfcommand=="") 
+		cs.spawn("start",["",document.uri.path.slice(1)]);
+		else
 		cs.spawn(pdfcommand,[document.uri.path.slice(1)]);
 	}
 }
@@ -33,6 +36,9 @@ class ViedoOpener implements vscode.CustomReadonlyEditorProvider {
 		vscode.commands.executeCommand('workbench.action.closeActiveEditor');
 		// Open the pdf file with native app
 		vscode.window.showInformationMessage(document.uri.path.slice(1));
+		if (viedocommand=="") 
+		cs.spawn("start",["",document.uri.path.slice(1)]);
+		else
 		cs.spawn(viedocommand,[document.uri.path.slice(1)]);
 	}
 }
